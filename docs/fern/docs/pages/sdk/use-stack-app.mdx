@@ -1,16 +1,46 @@
 ---
-slug: sdk/use-stack-app
+title: useStackApp
 ---
 
-The `useStackApp` hook returns the `StackClientApp` object that you can use to interact with the Stack API. If you want to learn more about the `StackClientApp` object, check out the [App](./stack-app.mdx) documentation.
+# useStackApp
 
-Example:
+A custom React hook for managing stacks in a Stack application.
 
-```jsx
-import { useStackApp } from "@stackframe/stack";
+## Parameters
 
-function MyComponent() {
-  const stackApp = useStackApp();
-  return <div>Sign In URL: {stackApp.urls.signIn}</div>;
-}
+This hook does not take any parameters.
+
+## Returns
+
+- `stacks`: `Stack[]` - An array of Stack objects.
+- `currentStack`: `Stack | null` - The currently selected Stack object, or null if no stack is selected.
+- `createStack`: `(name: string) => Promise<void>` - A function to create a new stack.
+- `deleteStack`: `(stackId: string) => Promise<void>` - A function to delete a stack.
+- `selectStack`: `(stack: Stack) => void` - A function to select a stack.
+
+## Example
+
+```tsx
+import { useStackApp } from '@stackframe/stack';
+
+const MyComponent = () => {
+  const { stacks, currentStack, createStack, deleteStack, selectStack } = useStackApp();
+
+  return (
+    <div>
+      <h2>Stacks</h2>
+      <ul>
+        {stacks.map((stack) => (
+          <li key={stack.id}>
+            {stack.name}
+            <button onClick={() => selectStack(stack)}>Select</button>
+            <button onClick={() => deleteStack(stack.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => createStack('New Stack')}>Create Stack</button>
+      {currentStack && <p>Current Stack: {currentStack.name}</p>}
+    </div>
+  );
+};
 ```
