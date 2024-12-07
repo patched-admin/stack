@@ -1,0 +1,33 @@
+---
+title: StackHandler
+---
+
+# StackHandler
+
+A component that handles various authentication and user management routes for Stack applications.
+
+## Props
+
+- `app`: `StackServerApp<HasTokenStore>` - The Stack server app instance.
+- `fullPage`: `boolean` - Whether to render the component in full-page mode.
+- `componentProps`: `object` (optional) - Props to pass to the rendered components.
+- `routeProps`: `RouteProps | unknown` - Route properties including params and searchParams.
+
+## Example
+
+```tsx
+import { StackHandler } from '@stackframe/stack';
+import { app } from './stackApp';
+
+export default async function Page({ params, searchParams }) {
+  return (
+    <StackHandler
+      app={app}
+      fullPage={true}
+      routeProps={{ params, searchParams }}
+    />
+  );
+}
+```
+
+This example demonstrates how to use the StackHandler component in a Next.js page, passing the necessary props including the Stack app instance, fullPage setting, and route properties.
