@@ -1,0 +1,36 @@
+---
+title: useStackApp
+---
+
+# useStackApp
+
+A React hook that provides access to the StackApp context.
+
+## Usage
+
+This hook must be used within a component that is a child of `StackAppProvider`.
+
+## Returns
+
+Returns the StackApp context object.
+
+## Example
+
+```tsx
+import { useStackApp } from '@stackframe/stack';
+
+function MyComponent() {
+  const stackApp = useStackApp();
+  
+  // Use stackApp here
+  return (
+    <div>
+      {/* Your component JSX */}
+    </div>
+  );
+}
+```
+
+## Error Handling
+
+Throws an error if used outside of a `StackAppProvider`.
