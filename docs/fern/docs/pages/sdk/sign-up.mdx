@@ -1,0 +1,37 @@
+---
+title: SignUp
+---
+
+# SignUp
+
+Renders a sign-up page component with customizable options.
+
+## Props
+
+- `fullPage` (optional): `boolean` - If true, renders the sign-up page in full-page mode.
+- `automaticRedirect` (optional): `boolean` - If true, enables automatic redirection after successful sign-up.
+- `noPasswordRepeat` (optional): `boolean` - If true, removes the password repeat field from the form.
+- `extraInfo` (optional): `React.ReactNode` - Additional information to display on the sign-up page.
+- `firstTab` (optional): `'magic-link' | 'password'` - Determines which tab is displayed first on the sign-up page.
+
+## Example
+
+```tsx
+import { SignUp } from '@stackframe/stack';
+
+// Basic usage
+<SignUp />
+
+// Full page with automatic redirect and custom first tab
+<SignUp
+  fullPage={true}
+  automaticRedirect={true}
+  firstTab='magic-link'
+/>
+
+// With extra information and no password repeat
+<SignUp
+  noPasswordRepeat={true}
+  extraInfo={<p>Additional sign-up information here.</p>}
+/>
+```
