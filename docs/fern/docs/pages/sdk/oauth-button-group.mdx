@@ -1,0 +1,36 @@
+---
+title: OAuthButtonGroup
+---
+
+# OAuthButtonGroup
+
+A component that renders a group of OAuth buttons for sign-in or sign-up.
+
+## Props
+
+- `type`: `'sign-in' | 'sign-up'` - Specifies whether the buttons are for sign-in or sign-up.
+- `mockProject` (optional): `{ config: { oauthProviders: { id: string }[] } }` - A mock project object for testing purposes.
+
+## Example
+
+```tsx
+import { OAuthButtonGroup } from '@stackframe/stack';
+
+function SignInPage() {
+  return (
+    <div>
+      <h1>Sign In</h1>
+      <OAuthButtonGroup type="sign-in" />
+    </div>
+  );
+}
+
+function SignUpPage() {
+  return (
+    <div>
+      <h1>Sign Up</h1>
+      <OAuthButtonGroup type="sign-up" />
+    </div>
+  );
+}
+```
