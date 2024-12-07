@@ -1,0 +1,32 @@
+---
+title: SelectedTeamSwitcher
+---
+
+# SelectedTeamSwitcher
+
+A component that provides a team selection interface with a loading fallback.
+
+## Props
+
+- `urlMap`: `{}` - An object representing the URL mapping.
+- `selectedTeam`: `Team` - The currently selected team.
+- `noUpdateSelectedTeam`: `boolean` (optional) - If true, prevents updating the selected team.
+
+## Example
+
+```tsx
+import { SelectedTeamSwitcher } from '@stackframe/stack';
+
+function MyComponent() {
+  const urlMap = {};
+  const selectedTeam = { id: '1', name: 'Team A' };
+
+  return (
+    <SelectedTeamSwitcher
+      urlMap={urlMap}
+      selectedTeam={selectedTeam}
+      noUpdateSelectedTeam={false}
+    />
+  );
+}
+```
