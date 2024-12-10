@@ -1,0 +1,36 @@
+---
+title: AccountSettings
+---
+
+# AccountSettings
+
+Renders an account settings page with customizable content and layout options.
+
+## Props
+
+- `fullPage` (optional): `boolean` - If true, renders the component in full-page mode.
+- `extraItems` (optional): `Array` - Additional items to be displayed in the sidebar. Each item should have the following properties:
+  - `title`: `string` - The title of the item.
+  - `content`: `React.ReactNode` - The content to be displayed for this item.
+  - `id`: `string` - A unique identifier for the item.
+  - `icon`: `React.ReactNode` (optional) - A custom icon for the item.
+  - `iconName`: `string` (optional) - Name of a predefined icon to use.
+
+## Example
+
+```tsx
+import { AccountSettings } from '@stackframe/stack';
+
+function MyAccountPage() {
+  const extraItems = [
+    {
+      title: 'Custom Section',
+      content: <CustomContent />,
+      id: 'custom-section',
+      iconName: 'Star'
+    }
+  ];
+
+  return <AccountSettings fullPage={true} extraItems={extraItems} />;
+}
+```
