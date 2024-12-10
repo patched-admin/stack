@@ -1,0 +1,43 @@
+---
+title: StackTheme
+---
+
+# StackTheme
+
+A component that applies a theme to its children and injects necessary styles.
+
+## Props
+
+- `theme` (optional): `ThemeConfig` - Custom theme configuration to override default theme values.
+- `children` (optional): `React.ReactNode` - Child components to be wrapped by the theme.
+- `nonce` (optional): `string` - A nonce for the injected style tag for security purposes.
+
+## Example
+
+```tsx
+import { StackTheme } from '@stackframe/stack';
+
+const customTheme = {
+  light: {
+    background: '#ffffff',
+    foreground: '#000000',
+    // ... other light theme properties
+  },
+  dark: {
+    background: '#000000',
+    foreground: '#ffffff',
+    // ... other dark theme properties
+  },
+  radius: '4px',
+};
+
+function App() {
+  return (
+    <StackTheme theme={customTheme}>
+      {/* Your app components */}
+    </StackTheme>
+  );
+}
+```
+
+This example shows how to use `StackTheme` with a custom theme. The component will apply the provided theme, falling back to default values for any unspecified properties.
