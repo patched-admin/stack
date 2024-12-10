@@ -1,16 +1,51 @@
 ---
-slug: sdk/hooks/use-stack-app
+title: useStackApp
 ---
 
-The `useStackApp` hook returns a `StackClientApp` object from the one that you provided in the [`StackProvider` component](../../components/stack-provider.mdx). If you want to learn more about the `StackClientApp` object, check out the [StackApp](../objects/stack-app.mdx) documentation.
+# useStackApp
 
-Example:
+A hook that provides access to the StackClientApp object.
 
-```jsx
-import { useStackApp } from "@stackframe/stack";
+## Overview
+
+The `useStackApp` hook returns a `StackClientApp` object from the one that you provided in the [`StackProvider` component](../../components/stack-provider.mdx). This hook is essential for accessing and manipulating the Stack App state within your React components.
+
+## Usage
+
+```tsx
+import { useStackApp } from '@stackframe/stack';
+```
+
+## Parameters
+
+- `options` (optional): `StackAppOptions` - Configuration options for the hook.
+
+## Returns
+
+Returns a `StackClientApp` object. If you want to learn more about the `StackClientApp` object, check out the [StackApp](../objects/stack-app.mdx) documentation.
+
+## Example
+
+```tsx
+import { useStackApp } from '@stackframe/stack';
 
 function MyComponent() {
   const stackApp = useStackApp();
-  return <div>Sign In URL: {stackApp.urls.signIn}</div>;
+  
+  return (
+    <div>
+      <p>Sign In URL: {stackApp.urls.signIn}</p>
+      <button onClick={() => stackApp.open()}>
+        Open Stack App
+      </button>
+    </div>
+  );
 }
 ```
+
+In this example, we're using the `useStackApp` hook to access the `StackClientApp` object. We're then using its properties and methods to display the sign-in URL and provide a button to open the Stack App.
+
+## Notes
+
+- Always ensure that your component is wrapped within a `StackProvider` higher up in the component tree when using this hook.
+- The `StackClientApp` object provides various methods and properties for interacting with the Stack App. Refer to the [StackApp](../objects/stack-app.mdx) documentation for a complete list of available features.
