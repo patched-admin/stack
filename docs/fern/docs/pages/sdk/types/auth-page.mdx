@@ -1,0 +1,49 @@
+---
+title: AuthPage
+---
+
+# AuthPage
+
+Renders an authentication page component with various configuration options.
+
+## Props
+
+- `noPasswordRepeat`: `boolean` - If true, disables password repeat field for sign-up.
+- `firstTab`: `'magic-link' | 'password'` - Determines which tab is shown first.
+- `fullPage`: `boolean` - If true, renders the auth page in full-page mode.
+- `type`: `'sign-in' | 'sign-up'` - Specifies whether it's a sign-in or sign-up page.
+- `automaticRedirect`: `boolean` - If true, enables automatic redirect after successful authentication.
+- `extraInfo`: `React.ReactNode` - Additional information to display on the auth page.
+- `mockProject`: `object` - Configuration for mocking project settings.
+  - `config`: `object`
+    - `signUpEnabled`: `boolean` - Enables or disables sign-up functionality.
+    - `credentialEnabled`: `boolean` - Enables or disables credential-based authentication.
+    - `passkeyEnabled`: `boolean` - Enables or disables passkey authentication.
+    - `magicLinkEnabled`: `boolean` - Enables or disables magic link authentication.
+    - `oauthProviders`: `Array<{ id: string }>` - List of OAuth providers.
+
+## Example
+
+```tsx
+import { AuthPage } from '@stackframe/stack';
+
+function MyAuthPage() {
+  return (
+    <AuthPage
+      type="sign-in"
+      firstTab="password"
+      fullPage={true}
+      automaticRedirect={true}
+      mockProject={{
+        config: {
+          signUpEnabled: true,
+          credentialEnabled: true,
+          passkeyEnabled: false,
+          magicLinkEnabled: true,
+          oauthProviders: [{ id: 'google' }]
+        }
+      }}
+    />
+  );
+}
+```

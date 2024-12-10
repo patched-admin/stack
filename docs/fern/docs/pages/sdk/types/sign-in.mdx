@@ -1,0 +1,31 @@
+---
+title: SignIn
+---
+
+# SignIn
+
+Renders a sign-in page component with customizable options.
+
+## Props
+
+- `fullPage` (optional): `boolean` - If true, renders the sign-in page in full-page mode.
+- `automaticRedirect` (optional): `boolean` - If true, enables automatic redirect after successful sign-in.
+- `extraInfo` (optional): `React.ReactNode` - Additional information to display on the sign-in page.
+- `firstTab` (optional): `'magic-link' | 'password'` - Determines which tab is initially active. Default is 'magic-link'.
+
+## Example
+
+```tsx
+import { SignIn } from '@stackframe/stack';
+
+// Basic usage
+<SignIn />
+
+// With all props
+<SignIn
+  fullPage={true}
+  automaticRedirect={true}
+  extraInfo={<p>Welcome back!</p>}
+  firstTab='password'
+/>
+```

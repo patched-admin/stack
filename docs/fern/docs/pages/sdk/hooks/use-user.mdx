@@ -1,8 +1,29 @@
 ---
 title: useUser
-slug: /sdk/hooks/use-user
 ---
 
-This standalone React hook is an alias for `useStackApp().useUser()`. It only exists for convenience; it does not have any additional functionality.
+# useUser
 
-For more information, please refer to the [documentation for `stackClientApp.useUser()`](../objects/stack-app.mdx#stackclientappuseuseroptions).
+A React hook that provides user information and loading state.
+
+## Example
+
+```tsx
+import { useUser } from '@stackframe/stack';
+
+function UserProfile() {
+  const { user, loading } = useUser();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return <div>Welcome, {user.name}!</div>;
+}
+```
+
+## Description
+
+The `useUser` hook is a standalone React hook that serves as an alias for `useStackApp().useUser()`. It is provided for convenience and does not have any additional functionality beyond what `stackClientApp.useUser()` offers.
+
+For more detailed information about the underlying functionality, please refer to the [documentation for `stackClientApp.useUser()`](../objects/stack-app.mdx#stackclientappuseuseroptions).

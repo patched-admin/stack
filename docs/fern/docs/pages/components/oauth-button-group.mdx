@@ -1,21 +1,15 @@
 ---
-title: "&lt;OAuthButtonGroup /&gt;"
-slug: components/oauth-button-group
+title: OAuthButtonGroup
 ---
 
-Renders all the OAuth buttons enabled on the project dashboard.
+# OAuthButtonGroup
 
-<div className="stack-white-image-showcase">
-  <img src="../imgs/oauth-button-group.png" alt="OAuthButtonGroup" height={240} />
-</div>
-
-<Callout>
-If there are no OAuth providers enabled in the dashboard, this component will be empty.
-</Callout>
+Renders OAuth buttons for all enabled providers on the project dashboard.
 
 ## Props
 
-- `type`: `'sign-in' | 'sign-up'` - Specifies whether the buttons text are for sign-in or sign-up (both are the same in terms of functionality).
+- `type`: `'sign-in' | 'sign-up'` - Specifies whether the buttons are for sign-in or sign-up (functionality remains the same).
+- `mockProject` (optional): `{ config: { oauthProviders: { id: string }[] } }` - Used for mocking project configuration in testing scenarios.
 
 ## Example
 
@@ -30,5 +24,12 @@ export default function Page() {
     </div>
   );
 }
-
 ```
+
+<div className="stack-white-image-showcase">
+  <img src="../imgs/oauth-button-group.png" alt="OAuthButtonGroup" height={240} />
+</div>
+
+<Callout>
+If there are no OAuth providers enabled in the dashboard, this component will be empty.
+</Callout>

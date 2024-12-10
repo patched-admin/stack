@@ -1,0 +1,36 @@
+---
+title: StackHandler
+---
+
+# StackHandler
+
+A component that handles routing for various authentication and account-related pages in a Stack application.
+
+## Props
+
+- `app`: `StackServerApp<HasTokenStore>` - The Stack server application instance.
+- `fullPage`: `boolean` - Whether to render the component in full-page mode.
+- `componentProps`: `object` (optional) - Props to pass to individual components rendered by StackHandler.
+  - Can include props for: `SignIn`, `SignUp`, `EmailVerification`, `PasswordReset`, `ForgotPassword`, `SignOut`, `OAuthCallback`, `MagicLinkCallback`, `TeamInvitation`, `ErrorPage`, `AccountSettings`.
+- `routeProps`: `RouteProps | unknown` - Route properties including `params` and `searchParams`.
+
+## Example
+
+```tsx
+import { StackHandler } from '@stackframe/stack';
+import { app } from './your-stack-app-config';
+
+export default function Page({ params, searchParams }) {
+  return (
+    <StackHandler
+      app={app}
+      fullPage={true}
+      routeProps={{ params, searchParams }}
+      componentProps={{
+        SignIn: { /* custom props for SignIn component */ },
+        // ... other component props
+      }}
+    />
+  );
+}
+```
