@@ -73,12 +73,20 @@ The configuration settings for the project.
     States whether magic link authentication is enabled for the project.
   </ParamField>
 
+  <ParamField path="passkeyEnabled" type="boolean">
+    Indicates if passkey authentication is enabled for the project.
+  </ParamField>
+
   <ParamField path="clientTeamCreationEnabled" type="boolean">
     Determines if client-side team creation is permitted within the project.
   </ParamField>
 
   <ParamField path="clientUserDeletionEnabled" type="boolean">
     Indicates if client-side user deletion is enabled for the project.
+  </ParamField>
+
+  <ParamField path="oauthProviders" type="{ id: string; }[]">
+    List of OAuth providers configured for the project.
   </ParamField>
 </Accordion>
 
@@ -90,8 +98,12 @@ declare const config: {
   signUpEnabled: boolean;
   credentialEnabled: boolean;
   magicLinkEnabled: boolean;
+  passkeyEnabled: boolean;
   clientTeamCreationEnabled: boolean;
   clientUserDeletionEnabled: boolean;
+  oauthProviders: {
+    id: string;
+  }[];
 };
 ```
 
